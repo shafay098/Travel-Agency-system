@@ -1,0 +1,5 @@
+create procedure bk_amountCal @bk_id int
+as
+select Booking.pkg_id,Package.pkg_id,Package.amount,Booking.no_ofPpl from Package,Booking where Booking.pkg_id=Package.pkg_id;
+update Booking set amount:=Package.amount*Booking.no_ofPpl;
+go;
